@@ -67,4 +67,28 @@ public class Graph {
         throw new IllegalArgumentException("Label not found: " + label);
     }
 
+    //print methods for the graph
+    public void printAdjList() {
+        System.out.println("Adjacency List:");
+        for (Map.Entry<Integer, List<Integer>> e : adjList.entrySet()) {
+            System.out.print(" " + labels[e.getKey()] + " -> ");
+            List<Integer> neighbors = e.getValue();
+            for (int i = 0; i < neighbors.size(); i++) {
+                if (i > 0) System.out.print(", ");
+                System.out.print(labels[neighbors.get(i)]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void printAdjMatrix() {
+        System.out.println("Adjacency Matrix:");
+        for (String l : labels) System.out.printf("%3s", l);
+        System.out.println();
+        for (int i = 0; i < numVertices; i++) {
+            System.out.printf("  %3s  ", labels[i]);
+            for (int v : adjMatrix[i]) System.out.printf("%3d", v);
+            System.out.println();
+        }
+    }
 }
