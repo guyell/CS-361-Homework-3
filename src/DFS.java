@@ -24,4 +24,27 @@ public class DFS {
         return false;
     }
 
+    public List<Integer> searchMatrix(Graph graph, int start, int end) {
+        int n = graph.getNumVertices();
+        int[] parent = new int[n];
+        Arrays.fill(parent, -2);       // -2 = "not visited"
+        boolean[] visited = new boolean[n];
+        parent[start] = -1;
+        boolean found = dfsMatrixHelper(graph.getAdjMatrix(), start, end, n, visited, parent);
+        return found ? PathUtils.reconstruct(parent, end) : Collections.emptyList();
+    }
+
+    private boolean dfsMatrixHelper(int[][] matrix,
+                                    int current, int end, int n,
+                                    boolean[] visited, int[] parent) {
+        visited[current] = true;
+        if (current == end) return true;
+        for (int neighbor = 0; neighbor < n; neighbor++) {
+            if (matrix[current][neighbor] == 1 && !visited[neighbor]) {
+                parent[neighbor] = current;
+                if (dfsMatrixHelper(matrix, neighbor, end, n, visited, parent)) return true;
+            }
+        }
+        return false;
+    }
 }
