@@ -40,4 +40,31 @@ public class Graph {
         }
     }
 
+    //getters
+    public int getNumVertices() {
+        return numVertices;
+    }
+
+    public Map<Integer, List<Integer>> getAdjList() {
+        return adjList;
+    }
+
+    public int[][] getAdjMatrix() {
+        return adjMatrix;
+    }
+
+    public String getLabel(int vertex) {
+        return labels[vertex];
+    }
+
+    public String[] getLabels() {
+        return labels;
+    }
+
+    public int getVertex(String label) {
+        for (int i = 0; i < labels.length; i++)
+            if (labels[i].equals(label)) return i;
+        throw new IllegalArgumentException("Label not found: " + label);
+    }
+
 }
