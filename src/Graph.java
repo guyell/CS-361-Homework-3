@@ -1,2 +1,34 @@
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Graph {
+
+    private final int numVertices;
+    private final boolean directed;
+    private final Map<Integer, List<Integer>> adjList;
+    private final int[][] adjMatrix;
+
+    private final String[] labels;
+
+    public Graph(int numVertices, boolean directed, String[] labels) {
+        this.numVertices = numVertices;
+        this.directed = directed;
+        this.labels = labels;
+        this.adjList = new LinkedHashMap<>();
+        this.adjMatrix = new int[numVertices][numVertices];
+        for (int i = 0; i < numVertices; i++) adjList.put(i, new ArrayList<>());
+    }
+
+    private static String[] defaultLabels(int n) {
+        String[] l = new String[n];
+        for (int i = 0; i < n; i++) l[i] = String.valueOf(i);
+        return l;
+    }
+
+    public Graph(int numVertices, boolean directed) {
+        this(numVertices, directed, defaultLabels(numVertices));
+    }
+
 }
