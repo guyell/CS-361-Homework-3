@@ -31,4 +31,13 @@ public class Graph {
         this(numVertices, directed, defaultLabels(numVertices));
     }
 
+    public void addEdge(int from, int to) {
+        adjList.get(from).add(to);
+        adjMatrix[from][to] = 1;
+        if (!directed) {
+            adjList.get(to).add(from);
+            adjMatrix[to][from] = 1;
+        }
+    }
+
 }
