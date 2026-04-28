@@ -27,13 +27,13 @@ public class Printer{
                                   List<Integer> bfsMatrix,
                                   List<Integer> dfsMatrix) {
         section("Paths found");
-        System.out.printf(" %-22s : %s  [%d nodes]%n",
+        System.out.printf(" %-2s : %s  [%d nodes]%n",
                 "BFS (adj-list)",   PathUtils.format(bfsList,   graph), bfsList.size());
-        System.out.printf("  %-22s : %s  [%d nodes]%n",
+        System.out.printf(" %-2s : %s  [%d nodes]%n",
                 "DFS (adj-list)",   PathUtils.format(dfsList,   graph), dfsList.size());
-        System.out.printf("  %-22s : %s  [%d nodes]%n",
+        System.out.printf(" %-2s : %s  [%d nodes]%n",
                 "BFS (adj-matrix)", PathUtils.format(bfsMatrix, graph), bfsMatrix.size());
-        System.out.printf("  %-22s : %s  [%d nodes]%n",
+        System.out.printf(" %-2s : %s  [%d nodes]%n",
                 "DFS (adj-matrix)", PathUtils.format(dfsMatrix, graph), dfsMatrix.size());
     }
     public static void printBenchmarks(Benchmark.Result bfsList,
@@ -41,13 +41,13 @@ public class Printer{
                                        Benchmark.Result bfsMatrix,
                                        Benchmark.Result dfsMatrix) {
         section(String.format("Performance (avg over %d runs)", Benchmark.RUNS));
-        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+        System.out.printf("  %-2s  Time: %2d ns   Memory: %2d bytes%n",
                 "BFS (adj-list)",   bfsList.avgTimeNs,   bfsList.avgMemBytes);
-        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+        System.out.printf("  %-2s  Time: %2d ns   Memory: %2d bytes%n",
                 "DFS (adj-list)",   dfsList.avgTimeNs,   dfsList.avgMemBytes);
-        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+        System.out.printf("  %-2s  Time: %2d ns   Memory: %2d bytes%n",
                 "BFS (adj-matrix)", bfsMatrix.avgTimeNs, bfsMatrix.avgMemBytes);
-        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+        System.out.printf("  %-2s  Time: %2d ns   Memory: %2d bytes%n",
                 "DFS (adj-matrix)", dfsMatrix.avgTimeNs, dfsMatrix.avgMemBytes);
     }
 
