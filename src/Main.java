@@ -4,7 +4,6 @@ import java.util.function.Supplier;
 public class Main{
     static void main(String[] args) {
 
-
         BFS bfs = new BFS();
         DFS dfs = new DFS();
 

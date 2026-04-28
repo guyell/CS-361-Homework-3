@@ -36,6 +36,7 @@ public class Printer{
         System.out.printf(" %-2s : %s  [%d nodes]%n",
                 "DFS (adj-matrix)", PathUtils.format(dfsMatrix, graph), dfsMatrix.size());
     }
+
     public static void printBenchmarks(Benchmark.Result bfsList,
                                        Benchmark.Result dfsList,
                                        Benchmark.Result bfsMatrix,
@@ -50,5 +51,4 @@ public class Printer{
         System.out.printf("  %-2s  Time: %2d ns   Memory: %2d bytes%n",
                 "DFS (adj-matrix)", dfsMatrix.avgTimeNs, dfsMatrix.avgMemBytes);
     }
-
 }
