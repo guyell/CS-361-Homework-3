@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Print {
+public class Printer{
     //header
     public static void separator(String title) {
         System.out.println("\n" + "═".repeat(65));
@@ -35,6 +35,20 @@ public class Print {
                 "BFS (adj-matrix)", PathUtils.format(bfsMatrix, graph), bfsMatrix.size());
         System.out.printf("  %-22s : %s  [%d nodes]%n",
                 "DFS (adj-matrix)", PathUtils.format(dfsMatrix, graph), dfsMatrix.size());
+    }
+    public static void printBenchmarks(Benchmark.Result bfsList,
+                                       Benchmark.Result dfsList,
+                                       Benchmark.Result bfsMatrix,
+                                       Benchmark.Result dfsMatrix) {
+        section(String.format("Performance (avg over %d runs)", Benchmark.RUNS));
+        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+                "BFS (adj-list)",   bfsList.avgTimeNs,   bfsList.avgMemBytes);
+        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+                "DFS (adj-list)",   dfsList.avgTimeNs,   dfsList.avgMemBytes);
+        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+                "BFS (adj-matrix)", bfsMatrix.avgTimeNs, bfsMatrix.avgMemBytes);
+        System.out.printf("  %-22s  Time: %7d ns   Memory: %6d bytes%n",
+                "DFS (adj-matrix)", dfsMatrix.avgTimeNs, dfsMatrix.avgMemBytes);
     }
 
 }
